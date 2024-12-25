@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Settings</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #1877f2;
+            --secondary-color: #f0f2f5;
+            --bg-light: #ffffff;
+            --bg-dark: #18191a;
+            --text-light: #000000;
+            --text-dark: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            max-width: 150px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+        }
+
+        .card {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .dark-mode button {
+            background-color: #444;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loading span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            animation: bounce 1.2s infinite ease-in-out both;
+        }
+
+        .loading span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        /* Saved Settings Display */
+        .saved-settings {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Student Portal Logo">
+        <h1>Student Portal Settings</h1>
+    </header>
+
+    <div class="container">
+        <!-- Card 1: Profile Settings -->
+        <div class="card">
+            <h2>Profile Settings</h2>
+            <label for="profile-picture">Profile Picture</label>
+            <input type="file" id="profile-picture">
+            
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+        </div>
+
+        <!-- Card 2: Contact Settings -->
+        <div class="card">
+            <h2>Contact Settings</h2>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+            
+            <label for="next-of-kin">Next of Kin Phone Number</label>
+            <input type="tel" id="next-of-kin" placeholder="Enter next of kin phone number">
+        </div>
+
+        <!-- Card 3: Reason for Changes -->
+        <div class="card">
+            <h2>Reason for Changes</h2>
+            <label for="reason">Reason for Changing Settings</label>
+            <textarea id="reason" placeholder="Explain why you're changing settings"></textarea>
+        </div>
+
+        <!-- Card 4-9: Additional Settings -->
+        <div class="card">
+            <h2>Notification Preferences</h2>
+            <label for="notifications">Enable Notifications</label>
+            <select id="notifications">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <h2>Privacy Settings</h2>
+            <label for="privacy">Privacy Level</label>
+            <select id="privacy">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+                <option value="friends">Friends Only</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <h2>Theme Preferences</h2>
+            <label for="theme">Dark or Light Mode</label>
+            <select id="theme" onchange="toggleTheme()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <h2>Academic Settings</h2>
+            <label for="course">Course Enrolled</label>
+            <input type="text" id="course" placeholder="Enter your course">
+        </div>
+
+        <div class="card">
+            <h2>Font Size Preferences</h2>
+            <label for="font-size">Font Size</label>
+            <select id="font-size">
+                <option value="small">Small</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+            </select>
+        </div>
+
+        <div class="card">
+            <h2>Suggestions</h2>
+            <p>Have feedback or ideas? <a href="suggestions.html" target="_blank">Post Your Suggestions Here</a></p>
+        </div>
+
+        <!-- Save All Changes -->
+        <button onclick="saveAllChanges()">Save All Changes</button>
+
+        <!-- Loading Animation -->
+        <div class="loading" id="loading">
+            <span></span><span></span><span></span>
+        </div>
+
+        <!-- Display Saved Settings -->
+        <div class="saved-settings" id="saved-settings">
+            <h3>Your Saved Settings</h3>
+            <p><b>Profile Picture:</b> <span id="saved-picture">Not Set</span></p>
+            <p><b>Date of Birth:</b> <span id="saved-dob">Not Set</span></p>
+            <p><b>Email:</b> <span id="saved-email">Not Set</span></p>
+            <p><b>Phone Number:</b> <span id="saved-phone">Not Set</span></p>
+            <p><b>Next of Kin Phone:</b> <span id="saved-next-of-kin">Not Set</span></p>
+            <p><b>Reason:</b> <span id="saved-reason">Not Set</span></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const theme = document.getElementById('theme').value;
+            document.body.classList.toggle('dark-mode', theme === 'dark');
+        }
+
+        function saveAllChanges() {
+            // Show loading animation
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+
+            // Simulate saving
+            setTimeout(() => {
+                loading.style.display = 'none';
+                
+                // Save data
+                document.getElementById('saved-picture').textContent = document.getElementById('profile-picture').value || 'Not Set';
+                document.getElementById('saved-dob').textContent = document.getElementById('dob').value || 'Not Set';
+                document.getElementById('saved-email').textContent = document.getElementById('email').value || 'Not Set';
+                document.getElementById('saved-phone').textContent = document.getElementById('phone').value || 'Not Set';
+                document.getElementById('saved-next-of-kin').textContent = document.getElementById('next-of-kin').value || 'Not Set';
+                document.getElementById('saved-reason').textContent = document.getElementById('reason').value || 'Not Set';
+
+                alert('All changes saved successfully!');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

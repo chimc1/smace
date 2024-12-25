@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestion Form</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Replace this with the background color used in home.html */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Green color */
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 120px;
+        }
+
+        /* Form styling */
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50; /* Green color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .suggestions-list {
+            margin-top: 30px;
+        }
+
+        .suggestion-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .suggestion-item h3 {
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .suggestion-item p {
+            margin-bottom: 5px;
+        }
+
+        /* Success and Failure alert styles */
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .alert-success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .alert-failure {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Loading spinner style */
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .loading img {
+            width: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo" class="logo">
+
+    <h1>Suggestion Form</h1>
+
+    <!-- Alert Box for success or failure -->
+    <div id="alertBox"></div>
+
+    <!-- Suggestion Form -->
+    <form id="suggestionForm">
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" required>
+
+        <label for="suggestion">Suggestion:</label>
+        <textarea id="suggestion" rows="4" required></textarea>
+
+        <button type="button" onclick="submitSuggestion()">Submit</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+    </form>
+
+    <div class="loading" id="loading">
+        <img src="https://i.gifer.com/YCZH.gif" alt="Loading..."> <!-- Simple loading spinner -->
+        <p>Sending...</p>
+    </div>
+
+    <div class="suggestions-list" id="suggestionsList">
+        <!-- Display sent suggestions here -->
+    </div>
+
+    <script>
+        // Function to handle the suggestion form submission
+        function submitSuggestion() {
+            // Get form data
+            const studentId = document.getElementById("studentId").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const suggestion = document.getElementById("suggestion").value;
+            const timeSent = new Date().toLocaleString(); // Time when suggestion was sent
+
+            // Validate if all fields are filled
+            if (!studentId || !phone || !email || !suggestion) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            // Show loading indicator
+            document.getElementById("loading").style.display = "block";
+
+            // Simulate sending the suggestion (you would integrate with an email service like EmailJS here)
+            setTimeout(function () {
+                // Hide loading indicator after a short delay to simulate sending
+                document.getElementById("loading").style.display = "none";
+
+                // Display the suggestion details
+                const suggestionList = document.getElementById("suggestionsList");
+                const suggestionItem = document.createElement("div");
+                suggestionItem.classList.add("suggestion-item");
+
+                suggestionItem.innerHTML = `
+                    <h3>Suggestion by ${studentId}</h3>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Suggestion:</strong> ${suggestion}</p>
+                    <p><strong>Sent At:</strong> ${timeSent}</p>
+                `;
+
+                // Append the new suggestion to the list
+                suggestionList.appendChild(suggestionItem);
+
+                // Clear the form
+                document.getElementById("suggestionForm").reset();
+
+                // Show success alert
+                showAlert("Suggestion sent successfully!", "success");
+
+                // Simulate sending the email (this part needs to be integrated with EmailJS or a similar service)
+                sendEmail(studentId, phone, email, suggestion, timeSent);
+            }, 2000); // Simulate network delay of 2 seconds
+        }
+
+        // Function to simulate sending the email
+        function sendEmail(studentId, phone, email, suggestion, timeSent) {
+            // This is where you would integrate with an email service like EmailJS to send the suggestion.
+            // Example using EmailJS or a similar service would be like:
+            // emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+            //     studentId: studentId,
+            //     phone: phone,
+            //     email: email,
+            //     suggestion: suggestion,
+            //     timeSent: timeSent
+            // }).then(function(response) {
+            //     console.log('Sent successfully', response);
+            // }, function(error) {
+            //     console.log('Failed to send', error);
+            // });
+
+            // For now, just log the details in the console
+            console.log("Sending suggestion via email...");
+            console.log({
+                studentId,
+                phone,
+                email,
+                suggestion,
+                timeSent
+            });
+        }
+
+        // Function to display success/failure messages
+        function showAlert(message, type) {
+            const alertBox = document.getElementById("alertBox");
+            alertBox.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            setTimeout(function () {
+                alertBox.innerHTML = ''; // Clear alert after 3 seconds
+            }, 3000);
+        }
+
+        // Function to clear the form
+        function clearForm() {
+            document.getElementById("suggestionForm").reset();
+            showAlert("Form cleared.", "failure");
+        }
+    </script>
+
+</body>
+</html>

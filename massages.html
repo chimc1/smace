@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Same background color as the login page */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Green color */
+            margin-top: 30px;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 120px;
+        }
+
+        /* Modal styling */
+        .modal {
+            position: relative;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            max-width: 600px;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .modal h2 {
+            color: #4CAF50;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .modal .department {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        /* Download PDF Section */
+        .download-section {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .download-section h2 {
+            color: #4CAF50;
+        }
+
+        .download-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .download-section li {
+            margin: 10px 0;
+        }
+
+        .download-section a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .download-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Button for going back to the main menu */
+        .back-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo" class="logo">
+
+    <h1>Announcements</h1>
+
+    <!-- Modal for displaying announcements -->
+    <div class="modal">
+        <h2>Announcement 1</h2>
+        <p>We are pleased to announce the opening of the new computer lab on campus. Stay tuned for more information.</p>
+        <p class="department">From: IT Department</p>
+    </div>
+
+    <div class="modal">
+        <h2>Announcement 2</h2>
+        <p>Reminder: The deadline for submitting assignments is approaching. Please make sure to submit them before the due date.</p>
+        <p class="department">From: Natural Sciences Department</p>
+    </div>
+
+    <div class="modal">
+        <h2>Announcement 3</h2>
+        <p>Students are reminded to complete the online course feedback forms to improve our teaching strategies.</p>
+        <p class="department">From: Social Science Department</p>
+    </div>
+
+    <div class="modal">
+        <h2>Announcement 4</h2>
+        <p>The Mathematics Department will host a workshop on advanced calculus this weekend. All students are invited.</p>
+        <p class="department">From: Mathematics Department</p>
+    </div>
+
+    <div class="modal">
+        <h2>Announcement 5</h2>
+        <p>Our university will celebrate Science Week next month. More details on activities will be shared soon.</p>
+        <p class="department">From: Natural Sciences Department</p>
+    </div>
+
+    <!-- No new announcements message -->
+    <p style="text-align: center; color: gray;">There are no new announcements currently.</p>
+
+    <!-- Download PDF Section -->
+    <div class="download-section">
+        <h2>Download PDF Files</h2>
+        <ul>
+            <li><a href="path/to/your/pdf1.pdf" target="_blank">Download PDF 1</a></li>
+            <li><a href="path/to/your/pdf2.pdf" target="_blank">Download PDF 2</a></li>
+            <!-- Add more PDF links here as needed -->
+        </ul>
+    </div>
+
+    <!-- Button to go back to the main menu (login page) -->
+    <a href="home.html" class="back-btn">Back to Main Menu</a>
+
+</body>
+</html>

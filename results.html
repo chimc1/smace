@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Same background color */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Green color */
+            margin-top: 30px;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 120px;
+        }
+
+        /* Button styling */
+        .btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            width: 250px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Table styling */
+        .results-table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .results-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .results-table td {
+            font-size: 16px;
+        }
+
+        /* Results display section */
+        .results-display {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo" class="logo">
+
+    <h1>Results</h1>
+
+    <!-- Buttons to select the result -->
+    <div style="text-align: center;">
+        <a href="#" class="btn" onclick="showResults('first')">End of Year Results 1</a>
+        <a href="#" class="btn" onclick="showResults('second')">End of Year Results 2</a>
+        <a href="#" class="btn" onclick="showResults('third')">End of Year Results 3</a>
+    </div>
+
+    <!-- Results Display -->
+    <div id="first" class="results-display">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Course</th>
+                    <th>%</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- First Result Set -->
+                <tr>
+                    <td>1</td>
+                    <td>Course 1</td>
+                    <td>75%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Course 2</td>
+                    <td>80%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Course 3</td>
+                    <td>65%</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Course 4</td>
+                    <td>70%</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Course 5</td>
+                    <td>85%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Course 6</td>
+                    <td>90%</td>
+                    <td>A</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="second" class="results-display">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Course</th>
+                    <th>%</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Second Result Set -->
+                <tr>
+                    <td>1</td>
+                    <td>Course 1</td>
+                    <td>78%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Course 2</td>
+                    <td>84%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Course 3</td>
+                    <td>72%</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Course 4</td>
+                    <td>80%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Course 5</td>
+                    <td>65%</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Course 6</td>
+                    <td>88%</td>
+                    <td>A</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="third" class="results-display">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Course</th>
+                    <th>%</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Third Result Set -->
+                <tr>
+                    <td>1</td>
+                    <td>Course 1</td>
+                    <td>69%</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Course 2</td>
+                    <td>77%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Course 3</td>
+                    <td>63%</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Course 4</td>
+                    <td>75%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Course 5</td>
+                    <td>85%</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Course 6</td>
+                    <td>90%</td>
+                    <td>A</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Back to Main Menu -->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="home.html" class="btn">Back to Main Menu</a>
+    </div>
+
+    <script>
+        function showResults(option) {
+            // Hide all results
+            document.getElementById("first").style.display = "none";
+            document.getElementById("second").style.display = "none";
+            document.getElementById("third").style.display = "none";
+
+            // Show selected results
+            document.getElementById(option).style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

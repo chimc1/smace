@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Login</title>
+    <style>
+        /* Same styling as before */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #002366;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #1E3A5F;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .logo-container {
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .login-form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: #ddd;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #1b4a6b;
+            color: white;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .forgot-password {
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="logo.png" alt="Student Portal Logo" class="logo">
+        </div>
+
+        <form id="loginForm" class="login-form" onsubmit="handleLogin(event)">
+            <h2>Login to Student Portal</h2>
+
+            <div class="input-group">
+                <label for="student_number">Student Number:</label>
+                <input type="text" id="student_number" name="student_number" placeholder="Enter Student Number" required aria-label="Student Number">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required aria-label="Password ">
+            </div>
+
+            <button type="submit" class="submit-btn">Login</button>
+
+            <p class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </p>
+            <div class="error-message" id="error-message"></div>
+        </form>
+    </div>
+
+    <script>
+        // Function to handle login and store student number
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            const studentNumber = document.getElementById('student_number').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Check if the student number is valid
+            const validStudentNumbers = ['12345678', '24159368'];
+
+            if (validStudentNumbers.includes(studentNumber) && password === 'test1234') { // Dummy password check
+                // Store the student number and redirect to home.html
+                sessionStorage.setItem('studentNumber', studentNumber);
+                window.location.href = 'home.html'; // Redirect to home page
+            } else {
+                errorMessage.textContent = 'Incorrect student number or password. Please try again.';
+            }
+        }
+    </script>
+
+</body>
+</html>
